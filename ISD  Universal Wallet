@@ -1,0 +1,26 @@
+{
+  "name": "ISD Universal Wallet",
+  "chainId": 7832,
+  "rpc": ["https://rpc.isd-blockchain.net"],
+  "cloneFeature": true,
+  "security": {
+    "multiSig": true,
+    "backupEnabled": true
+  }
+}
+function cloneWallet(originalWallet) {
+    const clonedWallet = { ...originalWallet };
+    clonedWallet.id = `clone-${Date.now()}`;
+    console.log("Wallet cloned successfully:", clonedWallet);
+    return clonedWallet;
+}
+
+// Example Usage
+const userWallet = {
+    address: "0x123456789abcdef",
+    privateKey: "encrypted-key",
+    network: "ISD"
+};
+
+const clonedWallet = cloneWallet(userWallet);
+<button onclick="cloneWallet(userWallet)">Clone Wallet</button>
